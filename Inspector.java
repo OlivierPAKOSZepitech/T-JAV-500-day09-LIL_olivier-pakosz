@@ -1,6 +1,5 @@
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class Inspector<T> {
     private Class<T> inspectedClass;
@@ -26,6 +25,11 @@ public class Inspector<T> {
         for (Field field : fields) {
             System.out.println("- " + field.getName());
         }
+
+    }
+
+    public T createInstance() throws InstantiationException, IllegalAccessException {
+        return inspectedClass.newInstance();
     }
 
     public static void main(String[] args) {
